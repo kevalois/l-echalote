@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<body id="background_img">
+    
+    <div class="container" style="color: rgb(145,119,37);">
+            <h2 class="text-center" style="padding-bottom: 40px;padding-top: 20px;">Demande de devis personnalisé</h2>
+            {{ form_start(contactForm) }}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form_row(contactForm.nom) }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form_row(contactForm.email) }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    {{ form_row(contactForm.message) }}
+                </div>
+            </div>
+            <div class="form-row">
+                {{ form_row(contactForm.donne) }}
+            </div>
+            <button  type='submit' id='btn_reservation'><a>Envoyer votre demande</a></button>
+            {{ form_end(contactForm) }}
+    </div>
+
+{% for message in app.flashes('message') %}
+<div class="flash-notice">
+    {{ message }}
+</div>
+{% endfor %}
+
+<div class="container">
+    <h2 class="text-center" id="heading" style="padding-bottom: 30px;padding-top: 20px;">Où nous trouver</h2>
+    <div class="row" style="margin-right: -15px;">
+        <div class="col-md-5 col-lg-5 col-xl-5 offset-xl-0 d-flex flex-column justify-content-between" data-aos="fade" data-aos-duration="600" data-aos-delay="150" style="background-color: rgba(255,255,255,0.9);color: rgb(251,251,251);text-shadow: 1px 1px rgb(0,0,0);border-radius: 0px;height: 400px;padding-right: 15px;margin: 0px;margin-bottom: 15px;padding-top: 10px;padding-bottom: 15px;margin-right: 5px;margin-left: 5px;border: 0px solid rgb(145,119,37);">
+            <p style="margin-bottom: 0px;">Adresse:&nbsp;<a href="https://www.google.fr/maps/place/L%E2%80%99%C3%89chalote/@45.7362847,4.8376243,17z/data=!3m1!4b1!4m5!3m4!1s0x47f4ea3b6a9a4bbd:0x1490907d23f0c2ed!8m2!3d45.736281!4d4.839813" style="text-shadow: 0px 0px;color: rgb(0,0,0);"
+                target="_blank"><br>93 Rue de Gerland, 69007 Lyon<br></a></p>
+                <p style="margin-bottom: 0px;">Téléphone:&nbsp;<a href="tel:+33478726117" style="text-shadow: 0px 0px;color: rgb(0,0,0);"><br>04.78.72.61.17<br></a></p>
+                <p style="margin-bottom: 0px;">Email:&nbsp;<a href="mailto:camillepierrick@lechalote.com" style="text-shadow: 0px 0px;color: rgb(0,0,0);" target="_blank"><br>camillepierrick@lechalote.com<br><br></a></p>
+                <p style="margin-bottom: 0px;">Horaire:&nbsp;</p>
+                <ul class="list-unstyled text-center" style="text-align: left;">
+                    <li>Lundi 7h - 16h</li>
+                    <li>Mardi 7h - 16h</li>
+                    <li>Mercredi 7h - 20h</li>
+                    <li>Jeudi 7h - 20h</li>
+                    <li>Vendredi 7h - 20h</li>
+                    <li>Samedi 7h - 16h</li>
+                </ul>
+                <p style="margin-bottom: 0px;text-align: center;color: #000000;text-shadow: 0px 0px;">Nous vous attendons, pensez à réserver</p>
+            </div>
+            <div class="col" data-aos="fade" data-aos-duration="600" data-aos-delay="150" id="plan_responsiv" style="padding-top: 0px;padding-left: 6px;padding-right: 6px;"><iframe allowfullscreen="" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.7411989405646!2d4.837624315790387!3d45.73628472326746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea3b6a9a4bbd%3A0x1490907d23f0c2ed!2zTOKAmcOJY2hhbG90ZQ!5e0!3m2!1sfr!2sfr!4v1593025262693!5m2!1sfr!2sfr"
+                width="100%" height="400" style="border-radius: 0px;border: 1px solid rgb(145,119,37) ;"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center" style="margin-top: 30px;margin-bottom: 30px;">
+        <a class="d-flex d-lg-flex flex-row justify-content-center align-self-center justify-content-xl-center" data-toggle="modal" data-bs-tooltip="" id="btn_reservation" href="#modal_reservation">RESERVATION</a>
+    </div>
+    
+</body>
+{% endblock %}

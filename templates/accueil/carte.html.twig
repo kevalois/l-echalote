@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<body id="background_img">
+    <nav class="navbar navbar-light navbar-expand-md" style="background-color: rgba(51,51,51,0.63);">
+        <h4 style="color: white;">Carte</h4>
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-repas"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="border: 2px solid rgb(145,119,37);border-radius: 0px;width: 58px;height: 35px;padding: 0px;color: rgb(145,119,37);"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-repas">
+                <ul class="nav navbar-nav">
+                    {% for manger in mangers %}
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#{{ manger.slug }}">{{ manger.categorie }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-light navbar-expand-md" style="background-color: rgba(51,51,51,0.63);">
+        <h4 style="color: white;" class="text-center">Boissons</h4>
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-boisson"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="border: 2px solid rgb(145,119,37);border-radius: 0px;width: 58px;height: 35px;padding: 0px;color: rgb(145,119,37);"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-boisson">
+                <ul class="nav navbar-nav">
+                    {% for boire in boires %}
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#{{ boire.slug }}">{{ boire.categorie }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% for categorie in categories %}
+            {% if categorie.aliments.id == 1 %}
+                    <div id="panneau">
+                    <h2 id="{{ categorie.slug}}" style="text-align: center;padding-top: 10px;padding-right: 0px;padding-bottom: 10px;color: rgb(145,119,37);text-shadow: 1px 1px 1px rgb(145,95,37);background-color: rgba(255,255,255,0.9);margin-bottom: 3px;margin-top: 5px;border-width: 2px;border-style: solid;">{{ categorie.categorie}}</h2>
+                    {% for gulp in gulps %}
+                        {% if gulp.carte.categorie == categorie.categorie %}
+                        <div id="plat-body" style="margin-bottom: 1px;margin-top: 1px;">
+                            <div class="d-flex flex-row justify-content-between flex-wrap" style="padding-right: 15px;padding-left: 15px;font-size: 14px;padding-top: 5px;">
+                                <h5>{{ gulp.nom }}</h5>
+                                <h5>{{ gulp.tarif }} €</h5>
+                            </div>
+                            <div>
+                                <p style="padding-left: 15px;font-size: 12px;color: rgb(100,107,113);padding-bottom: 2px;margin-bottom: 0px;">{{ gulp.descriptif }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                    {% endfor %}
+                </div>
+            {% endif %}
+                
+            
+        {% endfor %}
+
+        {% for categorie in categories %}
+            {% if categorie.aliments.id == 2 %}
+                    <div id="panneau">
+                    <h2 id="{{ categorie.slug}}" style="text-align: center;padding-top: 10px;padding-right: 0px;padding-bottom: 10px;color: rgb(145,119,37);text-shadow: 1px 1px 1px rgb(145,95,37);background-color: rgba(255,255,255,0.9);margin-bottom: 3px;margin-top: 5px;border-width: 2px;border-style: solid;">{{ categorie.categorie}}</h2>
+                    {% for gulp in gulps %}
+                        {% if gulp.carte.categorie == categorie.categorie %}
+                        <div id="plat-body" style="margin-bottom: 1px;margin-top: 1px;">
+                            <div class="d-flex flex-row justify-content-between flex-wrap" style="padding-right: 15px;padding-left: 15px;font-size: 14px;padding-top: 5px;">
+                                <h5>{{ gulp.nom }}</h5>
+                                <h5>{{ gulp.tarif }} €</h5>
+                            </div>
+                            <div>
+                                <p style="padding-left: 15px;font-size: 12px;color: rgb(100,107,113);padding-bottom: 2px;margin-bottom: 0px;">{{ gulp.descriptif }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                    {% endfor %}
+                </div>
+            {% endif %}
+                
+            
+        {% endfor %}
+    </div>
+    
+    {% endblock %}

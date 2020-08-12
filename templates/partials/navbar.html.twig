@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light navbar-expand-md">
+    <div class="container-fluid"><a class="navbar-brand" id="navbar_logo" href="#modal_reservation" data-toggle="modal"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="border: 2px solid rgb(145,119,37);border-radius: 2px;width: 58px;height: 35px;padding: 0px;"><span class="sr-only" style="color: rgb(145,119,37);">Toggle navigation</span><span class="navbar-toggler-icon align-self-center" style="color: rgb(145,119,37);"></span></button>
+        <div
+            class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav mx-auto" id="navbar_link">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('accueil')}}">Accueil</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('carte')}}">La Carte</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('accueil')}}#evenement">Evenement</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('devis')}}">Devis</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('contact')}}">Contact</a></li>
+            </ul>
+    </div><a class="d-flex d-lg-flex flex-row justify-content-center align-self-center justify-content-xl-center" data-toggle="modal" data-bs-tooltip="" id="btn_reservation" href="#modal_reservation" style="border-width: 2px;">RESERVATION</a></div>
+</nav>
+
+
+
+<!-- Modal -->
+<div class="modal fade" role="dialog" tabindex="-1" id="modal_reservation"
+    style="background-color: rgba(255,255,255,0);">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">L'Echalote</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+            <div class="modal-body d-flex flex-column align-items-center"><a class="d-flex flex-row justify-content-center align-content-center" id="tel_modal" href="tel:+33478726117" style="border-width: 1px;border-radius: 0px;">04 78 72 61 17</a>
+                <p id="modal_horaire">Horaire:</p>
+                <p id="modal_horaire_1" style="text-align: center;">Lundi 7h - 15h</p>
+                <p id="modal_horaire_1" style="text-align: center;">Mardi 7h - 15h</p>
+                <p id="modal_horaire_1" style="text-align: center;">Mercredi 7h - 15h</p>
+                <p id="modal_horaire_1" style="text-align: center;">Jeudi 7h - 15h</p>
+                <p id="modal_horaire_1" style="text-align: center;">Vendredi 7h - 15h</p>
+                <p id="modal_horaire_1" style="text-align: center;">Samedi 7h - 15h</p>
+            </div>
+            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Fermer</button></div>
+        </div>
+    </div>
+</div>

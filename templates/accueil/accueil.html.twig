@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!--ALERTE-->
+{% for warning in alertes %}
+<div class="alert alert-danger text-center" role="alert" style="background-color: rgba(255,0,23,0.76);padding-bottom: 12px;margin-bottom: 0px;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+    <span style="color: #1c0003;">{{warning.alerte|raw}}</span>
+</div>
+{% endfor %}
+
+
+<!--PLAT DU JOUR-->
+<body id="background_img" style="font-family: Almarai, sans-serif;font-size: 14px;">
+    <section class="d-flex float-none flex-column" id="accueil" style="height: 934px;">
+        
+        <div id="logo-ardoise" style="margin-top: 20px;">
+            <div class="container" style="height: 380px;">
+                <div class="row" style="padding: 20px;padding-right: 0;padding-left: 0;padding-top: 15px;height: 603px;">
+                    <div class="col-lg-7 col-xl-8 offset-lg-0 offset-xl-0 d-flex flex-column justify-content-around" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000">
+                        <div id="logo" style="background: url(img/Logo_echalote_entier.png) center / contain no-repeat;width: 100%;height: 10;"></div>
+                        <p id="p_accroche">“Mange de façon à manger ce que tu manges, et non pas de manière à être dévoré par ta nourriture.”<br></p>
+                    </div>
+                    <div class="col offset-lg-0 d-flex flex-column justify-content-between" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true" id="ardoise">
+                        {% for plat in platDuJour %}
+                            <p>{{plat.date|date("d/m/Y")}}</p>
+                            <p>{{plat.plat|raw}}</p>
+                        <a class="d-flex d-lg-flex flex-row justify-content-center align-self-center justify-content-xl-center" data-toggle="modal" data-bs-tooltip="" id="btn_reservation" href="#modal_reservation" style="margin-bottom: 10px;">RESERVATION</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div data-bs-parallax-bg="true" id="parallax" style="height: 450px;background: url(img/Bouchon.jpg) center / cover;background-color: #ffffff;"></div>
+
+<!--EVENEMENT-->
+
+    <div class="container" id="evenement">
+        <div class="intro">
+            <h2 class="text-center" id="heading" style="padding-bottom: 40px;padding-top: 20px;">Evenement à venir</h2>
+            <div></div>
+            {% for evenement in evenements %}
+            <div class="card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" id="card_evenement"  style="margin-bottom: 30px">
+                <div class="card-body d-flex flex-column">
+                    
+                        <h4 class="d-xl-flex justify-content-xl-center card-title">{{ evenement.titre }}</h4>
+                        <h6 class="text-muted d-xl-flex justify-content-xl-end card-subtitle mb-2">{{ evenement.date|date("d/m/Y") }}</h6>
+                        <p class="card-text">{{ evenement.descriptif|raw }}</p>
+                        <a class="card-link d-flex d-lg-flex flex-row justify-content-center align-self-end justify-content-xl-center" data-toggle="modal" data-bs-tooltip="" id="btn_reservation" href="#modal_reservation">RESERVATION</a>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<!--CAROUSEL-->
+
+<div class="container" style="padding-bottom: 50px;padding-top: 50px;">
+    <div class="carousel slide" data-ride="carousel" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" id="carousel" style="background-image: url(assets/img/building.jpg);background-position: center;background-size: cover;">
+        <div class="carousel-inner" role="listbox" data-aos="fade">
+            <div class="carousel-item active"><img class="w-100 d-block" src="img/black-and-white-bar-black-monochrome-monochrome-photography-64308-pxhere.com.jpg" alt="Slide Image"></div>
+            <div class="carousel-item"><img class="w-100 d-block" src="img/cafe-coffee-aroma-food-produce-vegetable-654599-pxhere.com.jpg" alt="Slide Image"></div>
+            <div class="carousel-item"><img class="w-100 d-block" src="img/bar-463476_1920.jpg" alt="Slide Image"></div>
+        </div>
+        <div><a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
+        <ol
+            class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+    </div>
+</div>
+
+<!--CONTACTL-->
+
+    <div class="container">
+        <h2 class="text-center" id="heading" style="padding-bottom: 30px;padding-top: 20px;">Où nous trouver</h2>
+        <div class="row" style="margin-right: -15px;">
+            <div class="col-md-5 col-lg-5 col-xl-5 offset-xl-0 d-flex flex-column justify-content-between" data-aos="fade" data-aos-duration="600" data-aos-delay="150" style="background-color: rgba(255,255,255,0.9);color: rgb(251,251,251);text-shadow: 1px 1px rgb(0,0,0);border-radius: 0px;height: 400px;padding-right: 15px;margin: 0px;margin-bottom: 15px;padding-top: 10px;padding-bottom: 15px;margin-right: 5px;margin-left: 5px;border: 0px solid rgb(145,119,37);">
+                <p style="margin-bottom: 0px;">Adresse:&nbsp;<a href="https://www.google.fr/maps/place/L%E2%80%99%C3%89chalote/@45.7362847,4.8376243,17z/data=!3m1!4b1!4m5!3m4!1s0x47f4ea3b6a9a4bbd:0x1490907d23f0c2ed!8m2!3d45.736281!4d4.839813" style="text-shadow: 0px 0px;color: rgb(0,0,0);"
+                        target="_blank"><br>93 Rue de Gerland, 69007 Lyon<br></a></p>
+                <p style="margin-bottom: 0px;">Téléphone:&nbsp;<a href="tel:+33478726117" style="text-shadow: 0px 0px;color: rgb(0,0,0);"><br>04.78.72.61.17<br></a></p>
+                <p style="margin-bottom: 0px;">Email:&nbsp;<a href="mailto:camillepierrick@lechalote.com" style="text-shadow: 0px 0px;color: rgb(0,0,0);" target="_blank"><br>camillepierrick@lechalote.com<br><br></a></p>
+                <p style="margin-bottom: 0px;">Horaire:&nbsp;</p>
+                <ul class="list-unstyled text-center" style="text-align: left;">
+                    <li>Lundi 7h - 16h</li>
+                    <li>Mardi 7h - 16h</li>
+                    <li>Mercredi 7h - 20h</li>
+                    <li>Jeudi 7h - 20h</li>
+                    <li>Vendredi 7h - 20h</li>
+                    <li>Samedi 7h - 16h</li>
+                </ul>
+                <p style="margin-bottom: 0px;text-align: center;color: #000000;text-shadow: 0px 0px;">Nous vous attendons, pensez à réserver</p>
+            </div>
+            <div class="col" data-aos="fade" data-aos-duration="600" data-aos-delay="150" id="plan_responsiv" style="padding-top: 0px;padding-left: 6px;padding-right: 6px;"><iframe allowfullscreen="" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.7411989405646!2d4.837624315790387!3d45.73628472326746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea3b6a9a4bbd%3A0x1490907d23f0c2ed!2zTOKAmcOJY2hhbG90ZQ!5e0!3m2!1sfr!2sfr!4v1593025262693!5m2!1sfr!2sfr"
+                    width="100%" height="400" style="border-radius: 0px;border: 1px solid rgb(145,119,37) ;"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center" style="margin-top: 30px;margin-bottom: 30px;">
+        <a class="d-flex d-lg-flex flex-row justify-content-center align-self-center justify-content-xl-center" data-toggle="modal" data-bs-tooltip="" id="btn_reservation" href="#modal_reservation">RESERVATION</a>
+    </div>
+
+{% endblock %}
