@@ -22,11 +22,9 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
 
-            dump($contact);
             $donne = $form['donne']->getData();
 
             if($donne === true) {
-                dump($donne);
             // Ici nous enverrons l'e-mail
                 $message = (new \Swift_Message('Demande de contact'))
                     // On attribue l'expéditeur
@@ -43,7 +41,6 @@ class ContactController extends AbstractController
                         'text/html'
                     )
                 ;
-                        dd($message);
                 $mailer->send($message);
 
                 $this->addFlash('message', 'Votre message a été transmis, nous vous répondrons dans les meilleurs délais.'); // Permet un message flash de renvoi

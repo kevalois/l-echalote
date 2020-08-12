@@ -37,7 +37,7 @@ class DevisController extends AbstractController
                     ->setFrom($devis['email'])
 
                     // On attribue le destinataire
-                    ->setTo('kevalois@gmail.com')
+                    ->setTo('echalote@kevalois.fr')
 
                     // On crée le texte avec la vue
                     ->setBody(
