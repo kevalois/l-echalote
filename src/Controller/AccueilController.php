@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Alerte;
 use App\Entity\Evenement;
+use App\Entity\Image;
 use App\Entity\PlatDuJour;
 use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,10 +27,15 @@ class AccueilController extends AbstractController
 
         $evenement = $this->getDoctrine()->getRepository(Evenement::class)->findByEvents();
 
+        $image = $this->getDoctrine()->getRepository(Image::class)->findBy([
+            'actif' => 1
+        ]);
+
         return $this->render('accueil/accueil.html.twig', [
             'platDuJour' => $platDuJour,
             'alertes' => $alertes,
             'evenements' => $evenement,
+            'images' => $image,
         ]);
     }
 
