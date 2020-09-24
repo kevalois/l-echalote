@@ -11,6 +11,7 @@
 /vendor/
 /Procfile
 /.gitignore
+/public/images
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
