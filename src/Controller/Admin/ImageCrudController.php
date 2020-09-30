@@ -31,7 +31,7 @@ class ImageCrudController extends AbstractCrudController
         $imageField = ImageField::new('imageFile')->setFormType(VichImageType::class)->setLabel('Image')
         ->setTemplatePath('admin/easyadmin/custom/image_accueil.html.twig');
 
-        $image = ImageField::new('image')->setBasePath("/images/products")->setLabel('Image');
+        $image = ImageField::new('image')->setBasePath("/l-echalote/public/images/products")->setLabel('Image');
 
         $fields =  [
             TextField::new('titre')->onlyOnForms(),
