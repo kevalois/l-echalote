@@ -5,4 +5,4 @@ vich_uploader:
         product_image:
             uri_prefix: /l-echalote/public/images/products
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-            upload_destination: '%kernel.root_dir%/../public/images/products'
+            #upload_destination: '%kernel.root_dir%/../public/images/products'
